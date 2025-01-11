@@ -84,3 +84,40 @@ Q. 이벤트 루프란?
 - 이벤트 동작 과정
   - 자바스크립트의 setTimeout 이나 fetch와 같은 비동기 자바스크립트 코드를 브라우저 Web APIs에게 맡기고, 백그라운드 작업이 끝난 결과를 콜백 함수 형태로 큐(Callback Queue)에 넣고 처리 준비가 되면 호출 스택(Call Stack)에 넣어 마무리 작업을 진행한다.
 
+***
+
+Q. 함수 선언식이란?
+- function 키워드로 시작하고 함수 이름을 명시한다.
+- 함수가 선언된기 전에도 호출할 수 있다. --> 호이스팅
+<pre>
+   console.log(greet()); // "hello world"
+
+   function greet() {
+      return "hello world";
+   }
+</pre>
+
+Q. 함수 표현식이란?
+- 변수에 함수를 할당하는 형태로 작성된다.
+- 호이스팅이 되지 않으며, 선언되기 전에는 호출할 수 없다.
+<pre>
+   console.log(greetExpr()); // TypeError: greetExpr is not a function
+
+   var greetExpr = function() {
+      return "hello world";
+   };
+</pre>
+
+Q. 호이스팅이란?
+- 함수의 선언부가 최상단으로 이동하는 것
+- val 과 let 차이 (=var의 문제점)
+  - val은 호이스팅이 되어 변수의 선언과 초기화 같이 시켜버림..
+  - 에러를 뱉지 않고 undefined를 출력한다.
+    <pre>
+       console.log(a); //undefined
+       var a = 1;
+       console.log(a);
+    </pre>
+  - 함수만 지역변수로 호이스팅이 되고 나머지(for문, if문 지역변수)는 전역변수이다.
+  - 같은 이름 변수 허용함.
+  
